@@ -75,7 +75,7 @@ namespace PrimerParcial.UI.Registro
                 {
                     if (Convert.ToDouble(RetentextBox.Text) != 0)
                     {
-                        RetentextBox.Text += resultado;
+                        RetentextBox.Text = resultado.ToString();
                     }
                 }
             
