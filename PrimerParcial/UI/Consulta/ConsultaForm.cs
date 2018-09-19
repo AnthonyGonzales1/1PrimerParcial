@@ -56,21 +56,24 @@ namespace PrimerParcial.UI.Consulta
             int id;
             switch (FiltrocomboBox.SelectedIndex)
             {
-                case 0://ID articulo
+                case 0://ID 
                     id = Convert.ToInt32(CriteriotextBox.Text);
                     filtro = x => x.VendedorId == id;
                     break;
-                case 1://Descripcion articulo
+                case 1://Nombres
                     filtro = x => x.Nombres.Contains(CriteriotextBox.Text)
                     && (x.Fecha >= DesdedateTimePicker.Value && x.Fecha <= HastadateTimePicker.Value);
                     break;
-                case 2://Precio articulo
+                case 2://Sueldo 
                     filtro = x => x.Sueldo.Equals(CriteriotextBox.Text)
                     && (x.Fecha >= DesdedateTimePicker.Value && x.Fecha <= HastadateTimePicker.Value);
                     break;
-                case 3://Cantidad cotizada
+                case 3://Retencion
                     filtro = x => x.Retencion.Equals(CriteriotextBox.Text)
                     && (x.Fecha >= DesdedateTimePicker.Value && x.Fecha <= HastadateTimePicker.Value);
+                    break;
+                case 4://Todo
+                    filtro = x => true;
                     break;
             }
             VendedordataGridView.DataSource = BLL.VendedoresBLL.GetList(filtro);

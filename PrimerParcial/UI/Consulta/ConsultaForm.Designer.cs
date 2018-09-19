@@ -98,7 +98,8 @@
             "Vendedor ID",
             "Nombres",
             "Sueldo",
-            "Retencion"});
+            "Retencion",
+            "Todo"});
             this.FiltrocomboBox.Location = new System.Drawing.Point(53, 15);
             this.FiltrocomboBox.Name = "FiltrocomboBox";
             this.FiltrocomboBox.Size = new System.Drawing.Size(121, 21);

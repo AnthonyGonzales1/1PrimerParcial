@@ -121,7 +121,7 @@ namespace PrimerParcial.UI.Registro
             NombretextBox.Clear();
             FechadateTimePicker.ResetText();
             SueldotextBox.Clear();
-            RetentextBox.Clear();
+            RetentextBox.ResetText();
         }
 
         private void Nuevobutton_Click(object sender, EventArgs e)

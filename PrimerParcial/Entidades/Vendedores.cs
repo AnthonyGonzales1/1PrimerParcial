@@ -25,10 +25,5 @@ namespace PrimerParcial.Entidades
             this.Retencion = 0;
             
         }
-
-        public Vendedores(int vendedorId)
-        {
-            this.VendedorId = vendedorId;
-        }
     }
 }
