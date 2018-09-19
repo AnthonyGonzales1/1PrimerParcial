@@ -12,6 +12,24 @@ namespace PrimerParcial.BLL
 {
     public class VendedoresBLL
     {
+        public static Vendedores Buscar(int id)
+        {
+            Vendedores vendedores = new Vendedores();
+            Contexto contexto = new Contexto();
+            try
+            {
+
+                vendedores = contexto.Vendedore.Find(id);
+                contexto.Dispose();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            return vendedores;
+        }
+
         public static bool Guardar(Vendedores vendedores)
         {
             bool paso = false;
@@ -23,30 +41,6 @@ namespace PrimerParcial.BLL
                     contexto.SaveChanges();
                     contexto.Dispose();
                     paso = true;
-                }
-            }
-            catch (Exception)
-            {
-                throw;
-            }
-            return paso;
-        }
-
-        public static bool Eliminar(int Id)
-        {
-            bool paso = false;
-            Contexto contexto = new Contexto();
-            try
-            {
-                var eliminar = contexto.Vendedore.Find(Id);
-                if (eliminar != null)
-                {
-                    contexto.Entry(eliminar).State = EntityState.Deleted;
-                    if (contexto.SaveChanges() > 0)
-                    {
-                        contexto.Dispose();
-                        paso = true;
-                    }
                 }
             }
             catch (Exception)
@@ -77,24 +71,30 @@ namespace PrimerParcial.BLL
             return paso;
         }
 
-        public static Vendedores Buscar(int id)
+        public static bool Eliminar(int Id)
         {
-            Vendedores vendedores = new Vendedores();
+            bool paso = false;
             Contexto contexto = new Contexto();
             try
             {
-
-                vendedores = contexto.Vendedore.Find(id);
-                contexto.Dispose();
+                var eliminar = contexto.Vendedore.Find(Id);
+                if (eliminar != null)
+                {
+                    contexto.Entry(eliminar).State = EntityState.Deleted;
+                    if (contexto.SaveChanges() > 0)
+                    {
+                        contexto.Dispose();
+                        paso = true;
+                    }
+                }
             }
             catch (Exception)
             {
-
                 throw;
             }
-            return vendedores;
+            return paso;
         }
-
+        
         public static List<Vendedores> GetList(Expression<Func<Vendedores, bool>> vende)
         {
             List<Vendedores> vendedores = new List<Vendedores>();

@@ -42,8 +42,8 @@
             this.Guardarbutton = new System.Windows.Forms.Button();
             this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             this.label9 = new System.Windows.Forms.Label();
-            this.FechadateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.SueldotextBox = new System.Windows.Forms.TextBox();
+            this.FechadateTimePicker = new System.Windows.Forms.DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)(this.IdnumericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.SuspendLayout();
@@ -53,9 +53,9 @@
             this.label6.AutoSize = true;
             this.label6.Location = new System.Drawing.Point(12, 28);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(64, 13);
+            this.label6.Size = new System.Drawing.Size(67, 13);
             this.label6.TabIndex = 0;
-            this.label6.Text = "Vendedores";
+            this.label6.Text = "Vendedor ID";
             // 
             // label7
             // 
@@ -160,15 +160,6 @@
             this.label9.TabIndex = 15;
             this.label9.Text = "Fecha";
             // 
-            // FechadateTimePicker
-            // 
-            this.FechadateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.FechadateTimePicker.Location = new System.Drawing.Point(55, 90);
-            this.FechadateTimePicker.Name = "FechadateTimePicker";
-            this.FechadateTimePicker.Size = new System.Drawing.Size(85, 20);
-            this.FechadateTimePicker.TabIndex = 16;
-            this.FechadateTimePicker.Tag = "dd/MM/yy";
-            // 
             // SueldotextBox
             // 
             this.SueldotextBox.Location = new System.Drawing.Point(55, 124);
@@ -176,11 +167,20 @@
             this.SueldotextBox.Size = new System.Drawing.Size(111, 20);
             this.SueldotextBox.TabIndex = 17;
             // 
+            // FechadateTimePicker
+            // 
+            this.FechadateTimePicker.CustomFormat = "dd/MM/yy";
+            this.FechadateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.FechadateTimePicker.Location = new System.Drawing.Point(55, 90);
+            this.FechadateTimePicker.Name = "FechadateTimePicker";
+            this.FechadateTimePicker.Size = new System.Drawing.Size(91, 20);
+            this.FechadateTimePicker.TabIndex = 18;
+            // 
             // RegistroForm
             // 
             this.ClientSize = new System.Drawing.Size(284, 261);
-            this.Controls.Add(this.SueldotextBox);
             this.Controls.Add(this.FechadateTimePicker);
+            this.Controls.Add(this.SueldotextBox);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.Guardarbutton);
             this.Controls.Add(this.Eliminarbutton);
@@ -217,8 +217,8 @@
         private System.Windows.Forms.Button Eliminarbutton;
         private System.Windows.Forms.Button Guardarbutton;
         private System.Windows.Forms.ErrorProvider errorProvider;
-        private System.Windows.Forms.DateTimePicker FechadateTimePicker;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox SueldotextBox;
+        private System.Windows.Forms.DateTimePicker FechadateTimePicker;
     }
 }

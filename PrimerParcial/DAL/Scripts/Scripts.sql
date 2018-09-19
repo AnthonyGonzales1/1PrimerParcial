@@ -1,2 +1,2 @@
-Create Database PrimerParcialDb
+create database PrimerParcialDb
 go

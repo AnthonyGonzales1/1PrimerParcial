@@ -16,19 +16,37 @@ namespace PrimerParcial.UI.Consulta
 {
     public partial class ConsultaForm : Form
     {
+        List<Vendedores> vendedore = new List<Vendedores>();
+        Vendedores vendedores = new Vendedores();
+        Expression<Func<Vendedores, bool>> filtrar = x => true;
+
         public ConsultaForm()
         {
             InitializeComponent();
         }
 
         private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
+        {}
         private void textBox1_TextChanged(object sender, EventArgs e)
-        {
+        {}
 
+        private bool Validar(int error)
+        {
+            bool paso = false;
+            int num = 0;
+
+            if (error == 1 && int.TryParse(CriteriotextBox.Text, out num) == false)
+            {
+                errorProvider.SetError(CriteriotextBox, "Debe de introducir un numero");
+                paso = true;
+            }
+            if (error == 2 && int.TryParse(CriteriotextBox.Text, out num) == true)
+            {
+                errorProvider.SetError(CriteriotextBox, "Debe de introducir un caracter");
+                paso = true;
+            }
+
+            return paso;
         }
 
         private void Buscarbutton_Click(object sender, EventArgs e)
@@ -39,25 +57,42 @@ namespace PrimerParcial.UI.Consulta
             switch (FiltrocomboBox.SelectedIndex)
             {
                 case 0://ID articulo
-                    id = Convert.ToInt32(CriteriocomboBox.Text);
+                    id = Convert.ToInt32(CriteriotextBox.Text);
                     filtro = x => x.VendedorId == id;
                     break;
                 case 1://Descripcion articulo
-                    filtro = x => x.Nombres.Contains(CriteriocomboBox.Text)
+                    filtro = x => x.Nombres.Contains(CriteriotextBox.Text)
                     && (x.Fecha >= DesdedateTimePicker.Value && x.Fecha <= HastadateTimePicker.Value);
                     break;
                 case 2://Precio articulo
-                    filtro = x => x.Sueldo.Equals(CriteriocomboBox.Text)
+                    filtro = x => x.Sueldo.Equals(CriteriotextBox.Text)
                     && (x.Fecha >= DesdedateTimePicker.Value && x.Fecha <= HastadateTimePicker.Value);
                     break;
                 case 3://Cantidad cotizada
-                    filtro = x => x.Retencion.Equals(CriteriocomboBox.Text)
+                    filtro = x => x.Retencion.Equals(CriteriotextBox.Text)
                     && (x.Fecha >= DesdedateTimePicker.Value && x.Fecha <= HastadateTimePicker.Value);
                     break;
             }
-
-
             VendedordataGridView.DataSource = BLL.VendedoresBLL.GetList(filtro);
+        }
+
+        private void FiltrocomboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            CriteriotextBox.Clear();
+            if (FiltrocomboBox.SelectedIndex == 2)
+            {
+                CriteriotextBox.Enabled = false;
+            }
+            else
+            {
+                CriteriotextBox.Enabled = true;
+            }
+            
+        }
+
+        private void ConsultaForm_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -13,7 +13,7 @@ namespace PrimerParcial.Entidades
         public int VendedorId { get; set; }
         public string Nombres { get; set; }
         public DateTime Fecha { get; set; }
-        public int Sueldo { get; set; }
+        public double Sueldo { get; set; }
         public double Retencion { get; set; }
 
         public Vendedores()
@@ -26,9 +26,9 @@ namespace PrimerParcial.Entidades
             
         }
 
-        public Vendedores(int partidoid)
+        public Vendedores(int vendedorId)
         {
-            this.VendedorId = partidoid;
+            this.VendedorId = vendedorId;
         }
     }
 }

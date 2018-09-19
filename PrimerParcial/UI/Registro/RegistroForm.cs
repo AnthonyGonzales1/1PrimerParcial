@@ -32,7 +32,7 @@ namespace PrimerParcial.UI.Registro
 
             vendedores.Nombres = NombretextBox.Text;
             vendedores.Fecha = FechadateTimePicker.Value;
-            vendedores.Sueldo = Convert.ToInt32(SueldotextBox.Text);
+            vendedores.Sueldo = Convert.ToDouble(SueldotextBox.Text);
             vendedores.Retencion = Convert.ToDouble(RetentextBox.CanSelect);
 
             return vendedores;
@@ -66,16 +66,16 @@ namespace PrimerParcial.UI.Registro
 
         private void RetentextBox_TextChanged(object sender, EventArgs e)
         {
-                double sueldo = Convert.ToInt32(SueldotextBox.Text);
-                double porcen = 0.584;
+                double sueldo = Convert.ToDouble(SueldotextBox.Text);
+                double porcen = 5.84;
                 double cien = 100;
                 double resultado = sueldo * porcen / cien;
 
                 try
                 {
-                    if (Convert.ToDouble(RetentextBox.Text) != 0)
+                    if (Convert.ToDouble(SueldotextBox.Text) != 0)
                     {
-                        RetentextBox.Text = resultado.ToString();
+                            RetentextBox.Text = resultado.ToString();
                     }
                 }
             
