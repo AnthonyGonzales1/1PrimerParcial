@@ -16,6 +16,7 @@ namespace PrimerParcial.UI.Registro
     public partial class RegistroForm : Form
     {
         public int RowSelected { get; set; }
+        public object CuotaTotaltextBox { get; set; }
 
         List<VendedoresDetalle> Detalle = new List<VendedoresDetalle>();
         Vendedores vendedores =new Vendedores();
@@ -267,7 +268,23 @@ namespace PrimerParcial.UI.Registro
         }
 
         private void CuotastextBox_TextChanged(object sender, EventArgs e)
-        {}
+        {
+            double cuotatotal = Convert.ToDouble(CuotaTotaltextBox);
+            double cuota = Convert.ToDouble(CuotastextBox.Text);
+            double resultado = cuota - cuotatotal;
+
+            try
+            {
+                if (Convert.ToDouble(CuotastextBox) != 0)
+                {
+                    CuotaTotaltextBox = resultado.GetType();
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
     }
 }
 

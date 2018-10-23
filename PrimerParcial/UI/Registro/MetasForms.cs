@@ -37,23 +37,7 @@ namespace PrimerParcial.UI.Registro
         }
 
         private void CuotaTotaltextBox_TextChanged(object sender, EventArgs e)
-        {
-            double cuotatotal = Convert.ToDouble(CuotaTotaltextBox.Text);
-            double cuota = Convert.ToDouble(CuotastextBox);
-            double resultado = cuota - cuotatotal;
-
-            try
-            {
-                if (Convert.ToDouble(CuotastextBox) != 0)
-                {
-                    CuotaTotaltextBox.Text = resultado.ToString();
-                }
-            }
-            catch (Exception)
-            {
-                throw;
-            }
-        }
+        {}
 
         private void Buscarbutton_Click(object sender, EventArgs e)
         {
