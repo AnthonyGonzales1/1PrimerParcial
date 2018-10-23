@@ -44,8 +44,16 @@
             this.label9 = new System.Windows.Forms.Label();
             this.SueldotextBox = new System.Windows.Forms.TextBox();
             this.FechadateTimePicker = new System.Windows.Forms.DateTimePicker();
+            this.VendedoresdataGridView = new System.Windows.Forms.DataGridView();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.CuotastextBox = new System.Windows.Forms.TextBox();
+            this.MetascomboBox = new System.Windows.Forms.ComboBox();
+            this.Deletebutton = new System.Windows.Forms.Button();
+            this.Addbutton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.IdnumericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.VendedoresdataGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // label6
@@ -109,7 +117,7 @@
             // 
             // Nuevobutton
             // 
-            this.Nuevobutton.Location = new System.Drawing.Point(15, 226);
+            this.Nuevobutton.Location = new System.Drawing.Point(15, 447);
             this.Nuevobutton.Name = "Nuevobutton";
             this.Nuevobutton.Size = new System.Drawing.Size(75, 23);
             this.Nuevobutton.TabIndex = 10;
@@ -129,7 +137,7 @@
             // 
             // Eliminarbutton
             // 
-            this.Eliminarbutton.Location = new System.Drawing.Point(197, 226);
+            this.Eliminarbutton.Location = new System.Drawing.Point(272, 447);
             this.Eliminarbutton.Name = "Eliminarbutton";
             this.Eliminarbutton.Size = new System.Drawing.Size(75, 23);
             this.Eliminarbutton.TabIndex = 12;
@@ -139,7 +147,7 @@
             // 
             // Guardarbutton
             // 
-            this.Guardarbutton.Location = new System.Drawing.Point(105, 226);
+            this.Guardarbutton.Location = new System.Drawing.Point(137, 447);
             this.Guardarbutton.Name = "Guardarbutton";
             this.Guardarbutton.Size = new System.Drawing.Size(75, 23);
             this.Guardarbutton.TabIndex = 13;
@@ -176,9 +184,78 @@
             this.FechadateTimePicker.Size = new System.Drawing.Size(91, 20);
             this.FechadateTimePicker.TabIndex = 18;
             // 
+            // VendedoresdataGridView
+            // 
+            this.VendedoresdataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.VendedoresdataGridView.Location = new System.Drawing.Point(15, 232);
+            this.VendedoresdataGridView.Name = "VendedoresdataGridView";
+            this.VendedoresdataGridView.Size = new System.Drawing.Size(332, 150);
+            this.VendedoresdataGridView.TabIndex = 19;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(12, 202);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(36, 13);
+            this.label1.TabIndex = 20;
+            this.label1.Text = "Metas";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(156, 202);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(40, 13);
+            this.label2.TabIndex = 21;
+            this.label2.Text = "Cuotas";
+            // 
+            // CuotastextBox
+            // 
+            this.CuotastextBox.Location = new System.Drawing.Point(202, 199);
+            this.CuotastextBox.Name = "CuotastextBox";
+            this.CuotastextBox.Size = new System.Drawing.Size(111, 20);
+            this.CuotastextBox.TabIndex = 22;
+            this.CuotastextBox.TextChanged += new System.EventHandler(this.CuotastextBox_TextChanged);
+            // 
+            // MetascomboBox
+            // 
+            this.MetascomboBox.FormattingEnabled = true;
+            this.MetascomboBox.Location = new System.Drawing.Point(53, 199);
+            this.MetascomboBox.Name = "MetascomboBox";
+            this.MetascomboBox.Size = new System.Drawing.Size(93, 21);
+            this.MetascomboBox.TabIndex = 23;
+            // 
+            // Deletebutton
+            // 
+            this.Deletebutton.Location = new System.Drawing.Point(99, 388);
+            this.Deletebutton.Name = "Deletebutton";
+            this.Deletebutton.Size = new System.Drawing.Size(75, 23);
+            this.Deletebutton.TabIndex = 25;
+            this.Deletebutton.Text = "Delete";
+            this.Deletebutton.UseVisualStyleBackColor = true;
+            this.Deletebutton.Click += new System.EventHandler(this.Deletebutton_Click);
+            // 
+            // Addbutton
+            // 
+            this.Addbutton.Location = new System.Drawing.Point(15, 388);
+            this.Addbutton.Name = "Addbutton";
+            this.Addbutton.Size = new System.Drawing.Size(75, 23);
+            this.Addbutton.TabIndex = 24;
+            this.Addbutton.Text = "Add";
+            this.Addbutton.UseVisualStyleBackColor = true;
+            this.Addbutton.Click += new System.EventHandler(this.Addbutton_Click);
+            // 
             // RegistroForm
             // 
-            this.ClientSize = new System.Drawing.Size(284, 261);
+            this.ClientSize = new System.Drawing.Size(359, 482);
+            this.Controls.Add(this.Deletebutton);
+            this.Controls.Add(this.Addbutton);
+            this.Controls.Add(this.MetascomboBox);
+            this.Controls.Add(this.CuotastextBox);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.VendedoresdataGridView);
             this.Controls.Add(this.FechadateTimePicker);
             this.Controls.Add(this.SueldotextBox);
             this.Controls.Add(this.label9);
@@ -196,6 +273,7 @@
             this.Name = "RegistroForm";
             ((System.ComponentModel.ISupportInitialize)(this.IdnumericUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.VendedoresdataGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -220,5 +298,12 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox SueldotextBox;
         private System.Windows.Forms.DateTimePicker FechadateTimePicker;
+        private System.Windows.Forms.Button Deletebutton;
+        private System.Windows.Forms.Button Addbutton;
+        private System.Windows.Forms.ComboBox MetascomboBox;
+        private System.Windows.Forms.TextBox CuotastextBox;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.DataGridView VendedoresdataGridView;
     }
 }

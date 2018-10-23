@@ -31,6 +31,7 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.registroToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.consultaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.MetastoolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -38,6 +39,7 @@
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.registroToolStripMenuItem,
+            this.MetastoolStripMenuItem,
             this.consultaToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
@@ -58,6 +60,13 @@
             this.consultaToolStripMenuItem.Size = new System.Drawing.Size(66, 20);
             this.consultaToolStripMenuItem.Text = "Consulta";
             this.consultaToolStripMenuItem.Click += new System.EventHandler(this.consultaToolStripMenuItem_Click);
+            // 
+            // MetastoolStripMenuItem
+            // 
+            this.MetastoolStripMenuItem.Name = "MetastoolStripMenuItem";
+            this.MetastoolStripMenuItem.Size = new System.Drawing.Size(51, 20);
+            this.MetastoolStripMenuItem.Text = "Metas";
+            this.MetastoolStripMenuItem.Click += new System.EventHandler(this.toolStripMenuItem1_Click);
             // 
             // MainForm
             // 
@@ -80,6 +89,7 @@
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem registroToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem consultaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem MetastoolStripMenuItem;
     }
 }
 

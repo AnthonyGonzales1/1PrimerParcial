@@ -1,4 +1,5 @@
-﻿using PrimerParcial.Entidades;
+﻿using PrimerParcial.DAL;
+using PrimerParcial.Entidades;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -8,14 +9,29 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static PrimerParcial.DAL.Repositorios;
 
 namespace PrimerParcial.UI.Registro
 {
     public partial class RegistroForm : Form
     {
+        public int RowSelected { get; set; }
+
+        List<VendedoresDetalle> Detalle = new List<VendedoresDetalle>();
+        Vendedores vendedores =new Vendedores();
         public RegistroForm()
         {
             InitializeComponent();
+            LlenarComboBox();
+        }
+
+        private void LlenarComboBox()
+        {
+            Repositorio<Metas> ticket = new Repositorio<Metas>(new Contexto());
+            MetascomboBox.DataSource = ticket.GetList(c => true);
+            MetascomboBox.ValueMember = "MetaId";
+            MetascomboBox.DisplayMember = "MetaId";
+
         }
 
         private Vendedores LlenaClase()
@@ -66,25 +82,22 @@ namespace PrimerParcial.UI.Registro
 
         private void RetentextBox_TextChanged(object sender, EventArgs e)
         {
-                double sueldo = Convert.ToDouble(SueldotextBox.Text);
-                double porcen = 5.84;
-                double cien = 100;
-                double resultado = sueldo * porcen / cien;
+            double sueldo = Convert.ToDouble(SueldotextBox.Text);
+            double porcen = 5.84;
+            double cien = 100;
+            double resultado = sueldo * porcen / cien;
 
-                try
+            try
+            {
+                if (Convert.ToDouble(SueldotextBox.Text) != 0)
                 {
-                    if (Convert.ToDouble(SueldotextBox.Text) != 0)
-                    {
-                            RetentextBox.Text = resultado.ToString();
-                    }
+                        RetentextBox.Text = resultado.ToString();
                 }
-            
-                catch (Exception)
-                {
-                    throw;
-
-                }
-            
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
 
         private void Buscarbutton_Click(object sender, EventArgs e)
@@ -197,5 +210,65 @@ namespace PrimerParcial.UI.Registro
                 }
             }
         }
+
+        private double toDouble(object valor)
+        {
+            double retorno = 0;
+            double.TryParse(valor.ToString(), out retorno);
+            return retorno;
+
+        }
+
+        private void Deletebutton_Click(object sender, EventArgs e)
+        {
+            if (Validar(1))
+            {
+                MessageBox.Show("Llenar campos Vacios");
+                return;
+            }
+            var result = MessageBox.Show("Seguro de  Eliminar?", "+Partidos",
+                     MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (result == DialogResult.Yes)
+            {
+                if (BLL.VendedoresBLL.Eliminar(Convert.ToInt32(IdnumericUpDown.Value)))
+                {
+                    MessageBox.Show("Eliminado");
+                    Limpiar();
+                }
+                else
+                {
+                    MessageBox.Show("No se pudo eliminar");
+                }
+            }
+        }
+
+        private void Addbutton_Click(object sender, EventArgs e)
+        {
+            Metas metas = new Metas();
+            List<VendedoresDetalle> vendedoresDetalles = new List<VendedoresDetalle>();
+            if (Validar(2))
+            {
+                MessageBox.Show("Llene los Campos", "Validacion", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
+            else
+            {
+                vendedores.Detalle.Add(new VendedoresDetalle
+                        (Convert.ToInt32(MetascomboBox.Text),
+                        Convert.ToDouble(CuotastextBox.Text)
+
+                    ));
+
+                //Cargar el detalle al Grid
+                VendedoresdataGridView.DataSource = null;
+                VendedoresdataGridView.DataSource = vendedores.Detalle;
+            }
+        }
+
+        private void CuotastextBox_TextChanged(object sender, EventArgs e)
+        {}
     }
 }
+
+

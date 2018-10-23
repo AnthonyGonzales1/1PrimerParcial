@@ -15,6 +15,7 @@ namespace PrimerParcial.Entidades
         public DateTime Fecha { get; set; }
         public double Sueldo { get; set; }
         public double Retencion { get; set; }
+        public List<VendedoresDetalle> Detalle { get; set; }
 
         public Vendedores()
         {
@@ -23,7 +24,12 @@ namespace PrimerParcial.Entidades
             this.Fecha = DateTime.Now;
             this.Sueldo = 0;
             this.Retencion = 0;
-            
+            this.Detalle = new List<VendedoresDetalle>();
+        }
+
+        public Vendedores(int vendedorId)
+        {
+            this.VendedorId = vendedorId;
         }
     }
 }

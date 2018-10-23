@@ -53,9 +53,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BLL\MetasBLL.cs" />
     <Compile Include="BLL\VendedoresBLL.cs" />
+    <Compile Include="BLL\VendedoresDetalleBLL.cs" />
     <Compile Include="DAL\Contexto.cs" />
+    <Compile Include="DAL\IRepository.cs" />
+    <Compile Include="DAL\Repositorios.cs" />
+    <Compile Include="Entidades\Metas.cs" />
     <Compile Include="Entidades\Vendedores.cs" />
+    <Compile Include="Entidades\VendedoresDetalle.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -69,6 +75,12 @@
     </Compile>
     <Compile Include="UI\Consulta\ConsultaForm.Designer.cs">
       <DependentUpon>ConsultaForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Registro\MetasForms.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Registro\MetasForms.Designer.cs">
+      <DependentUpon>MetasForms.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\Registro\RegistroForm.cs">
       <SubType>Form</SubType>
@@ -90,6 +102,9 @@
     </Compile>
     <EmbeddedResource Include="UI\Consulta\ConsultaForm.resx">
       <DependentUpon>ConsultaForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Registro\MetasForms.resx">
+      <DependentUpon>MetasForms.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Registro\RegistroForm.resx">
       <DependentUpon>RegistroForm.cs</DependentUpon>

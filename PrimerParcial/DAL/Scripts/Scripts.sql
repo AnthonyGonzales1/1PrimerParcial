@@ -1,2 +1,2 @@
-create database PrimerParcialDb
+create database SegundoParcialDB
 go

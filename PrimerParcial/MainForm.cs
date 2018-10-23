@@ -30,5 +30,12 @@ namespace PrimerParcial
 
             consulta.Show();
         }
+
+        private void toolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            PrimerParcial.UI.Registro.MetasForms metas = new UI.Registro.MetasForms();
+
+            metas.Show();
+        }
     }
 }
